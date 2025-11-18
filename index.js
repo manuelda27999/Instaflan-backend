@@ -48,6 +48,10 @@ mongoose.connect(`${MONGODB_URL}`).then(() => {
 
   api.use(cors());
 
+  api.get("/", (req, res) => {
+    res.send("API is running");
+  });
+
   api.post("/users/auth", jsonBodyParser, (req, res) => {
     try {
       const { email, password } = req.body;
